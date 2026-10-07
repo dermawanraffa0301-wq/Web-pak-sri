@@ -1,0 +1,112 @@
+/* =========================================================
+   PENGATURAN WARNA & UKURAN (ubah di sini, otomatis berlaku di semua bagian)
+   ========================================================= */
+:root {
+  --warna-header: #00224a;   /* biru tua header */
+  --warna-menu: #e65c00;     /* oranye menu */
+  --warna-tombol-cari: #2a0a6b;
+  --warna-label: #d90000;    /* label merah "Info" */
+  --warna-ticker: #333333;
+  --warna-teks: #222222;
+  --warna-latar: #f7f7f7;
+  --warna-kartu: #ffffff;
+  --warna-garis: #e3e3e3;
+  --lebar-maks: 1280px;
+}
+
+/* ===== Dasar ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Ubuntu", "Segoe UI", Arial, sans-serif;
+  color: var(--warna-teks);
+  background: var(--warna-latar);
+  line-height: 1.6;
+}
+a { color: var(--warna-menu); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: var(--lebar-maks); margin: 0 auto; padding: 0 16px; }
+
+/* ===== Header ===== */
+.header { background: var(--warna-header); color: #fff; padding: 28px 0; }
+.header h1 { font-size: 1.8rem; }
+.header p { margin: 4px 0 8px; }
+.header h2 { font-size: 1.5rem; }
+
+/* ===== Menu + Search ===== */
+.navbar {
+  background: var(--warna-menu);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 8px 24px;
+}
+.menu { display: flex; list-style: none; gap: 24px; }
+.menu a { color: #fff; font-weight: 500; text-transform: uppercase; }
+.search { display: flex; }
+.search input { padding: 8px 12px; border: 0; border-radius: 4px 0 0 4px; width: 240px; }
+.search button {
+  padding: 8px 16px; border: 0; cursor: pointer; color: #fff;
+  background: var(--warna-tombol-cari); border-radius: 0 4px 4px 0;
+}
+
+/* ===== Teks berjalan ===== */
+.ticker {
+  display: flex; max-width: var(--lebar-maks); margin: 24px auto;
+  background: var(--warna-ticker); color: #fff; overflow: hidden;
+}
+.ticker-label { background: var(--warna-label); padding: 8px 24px; font-weight: 700; }
+.ticker-box { flex: 1; overflow: hidden; display: flex; align-items: center; }
+.ticker-box p { white-space: nowrap; padding-left: 100%; animation: jalan 25s linear infinite; }
+@keyframes jalan { to { transform: translateX(-100%); } }
+
+/* ===== Tata letak 3 kolom ===== */
+.layout {
+  display: grid; gap: 24px; align-items: start;
+  grid-template-columns: 220px 1fr 280px;
+  padding-bottom: 40px;
+}
+
+/* ===== Kolom kiri: kategori ===== */
+.kategori { background: var(--warna-kartu); border: 1px solid var(--warna-garis); }
+.kategori a { display: block; padding: 14px 18px; color: var(--warna-teks); text-transform: uppercase; }
+.kategori a + a { border-top: 1px solid var(--warna-garis); }
+.kategori a:hover { background: var(--warna-latar); text-decoration: none; }
+
+/* ===== Konten tengah ===== */
+.judul-halaman { font-size: 2rem; font-weight: 400; text-transform: uppercase; line-height: 1.2; margin-bottom: 12px; }
+.judul-bagian { margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 3px solid var(--warna-menu); }
+
+/* ===== Kolom produk (foto seragam + nama sekolah) ===== */
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+.card { background: var(--warna-kartu); border: 1px solid var(--warna-garis); display: flex; flex-direction: column; }
+.card[hidden] { display: none; }
+.foto { aspect-ratio: 4 / 3; background: #dde3ea; }          /* abu-abu tampil bila foto belum ada */
+.foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.info { padding: 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.info p { font-size: 0.9rem; color: #555; flex: 1; }
+.tombol {
+  margin-top: 8px; padding: 8px; text-align: center; color: #fff;
+  background: var(--warna-menu); border-radius: 4px;
+}
+.tombol:hover { text-decoration: none; opacity: 0.9; }
+
+/* ===== Kolom kanan: kontak ===== */
+.kontak { background: var(--warna-kartu); border: 1px solid var(--warna-garis); }
+.kontak h3 { background: var(--warna-menu); color: #fff; padding: 12px 18px; text-transform: uppercase; }
+.kontak ul { list-style: none; padding: 16px 18px; }
+.kontak li { margin-bottom: 14px; word-break: break-word; }
+.kontak strong { display: block; }
+
+/* ===== Footer ===== */
+.footer { background: var(--warna-header); color: #fff; text-align: center; padding: 16px; font-size: 0.9rem; }
+
+/* ===== Tampilan HP & tablet ===== */
+@media (max-width: 960px) {
+  .layout { grid-template-columns: 1fr; }
+  .kontak { order: -1; }                 /* kontak naik ke atas di HP */
+  .kategori { display: flex; }
+  .kategori a { flex: 1; text-align: center; }
+  .kategori a + a { border-top: 0; border-left: 1px solid var(--warna-garis); }
+  .judul-halaman { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-box p { animation: none; padding-left: 16px; white-space: normal; }
+}

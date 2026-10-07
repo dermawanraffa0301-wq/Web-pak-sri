@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toko Seragam Sekolah Murah dan Lengkap</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ 1. HEADER (ganti nama toko & nomor hub) ============ -->
+<header class="header">
+  <div class="container">
+    <h1>Toko Seragam Sekolah Murah dan Lengkap</h1>
+    <p>Membuat dan Menjual Seragam Sekolah dan Seragam Kerja | Hub : 0857-6136-5742</p>
+    <h2>Toko Seragam Sekolah Murah dan Lengkap di Kota Anda</h2>
+  </div>
+</header>
+
+<!-- ============ 2. MENU + SEARCH ============ -->
+<nav class="navbar">
+  <ul class="menu">
+    <li><a href="#beranda">Beranda</a></li>
+    <li><a href="#profil">Profil</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+  <form class="search" action="#sekolah">
+    <input type="search" name="q" placeholder="Cari nama sekolah...">
+    <button type="submit">Cari</button>
+  </form>
+</nav>
+
+<!-- ============ 3. TEKS BERJALAN ============ -->
+<div class="ticker">
+  <span class="ticker-label">Info</span>
+  <div class="ticker-box">
+    <p>Selamat datang di toko kami &nbsp;&bull;&nbsp; Melayani pesanan seragam SD, SMP, SMA &nbsp;&bull;&nbsp; Hubungi admin lewat WhatsApp</p>
+  </div>
+</div>
+
+<!-- ============ 4. ISI HALAMAN ============ -->
+<div class="layout container">
+
+  <!-- Kolom kiri: kategori -->
+  <aside class="kategori">
+    <a href="#sekolah">Seragam Sekolah</a>
+  </aside>
+
+  <!-- Kolom tengah: konten -->
+  <main>
+    <h2 class="judul-halaman" id="beranda">Toko Seragam Sekolah Murah dan Lengkap di Kota Anda</h2>
+    <p id="profil">produk layanan yang tersedia (grosir, satuan, jahit sesuai ukuran).</p>
+
+    <!-- ----- SERAGAM SEKOLAH ----- -->
+    <h3 class="judul-bagian" id="sekolah">Seragam Sekolah</h3>
+    <div class="grid">
+
+      <!-- CARA MENAMBAH PRODUK: salin satu blok <article> ini, lalu ganti foto, nama sekolah, dan keterangan -->
+      <article class="card">
+        <div class="foto"><img src="gambar/sd-1.jpg" alt="Seragam SD"></div>
+        <div class="info">
+          <h4>SD Negeri 1 Contoh</h4>
+          <p>Seragam merah putih, 1 stel</p>
+          <a class="tombol" href="https://wa.me/6281234567890?text=Halo, saya ingin pesan seragam SD Negeri 1 Contoh">Pesan lewat WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="foto"><img src="gambar/smp-1.jpg" alt="Seragam SMP"></div>
+        <div class="info">
+          <h4>SMP Negeri 2 Contoh</h4>
+          <p>Seragam biru putih, 1 stel</p>
+          <a class="tombol" href="https://wa.me/6281234567890?text=Halo, saya ingin pesan seragam SMP Negeri 2 Contoh">Pesan lewat WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="foto"><img src="gambar/sma-1.jpg" alt="Seragam SMA"></div>
+        <div class="info">
+          <h4>SMA Negeri 3 Contoh</h4>
+          <p>Seragam abu-abu putih, 1 stel</p>
+          <a class="tombol" href="https://wa.me/6281234567890?text=Halo, saya ingin pesan seragam SMA Negeri 3 Contoh">Pesan lewat WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
+
+   
+
+  <!-- Kolom kanan: kontak penjual -->
+  <aside class="kontak" id="kontak">
+    <h3>Hubungi Kami</h3>
+    <ul>
+      <li><strong>Admin</strong>Nama Penjual</li>
+      <li><strong>Email</strong><a href="mailto:emailanda@gmail.com">Srimulyono@gmail.com</a></li>
+      <li><strong>WhatsApp</strong><a href="https://wa.me/6285761365742?s=t">+62 857-6136-5742</a></li>
+      <li><strong>Alamat</strong>-----</li>
+    </ul>
+  </aside>
+
+</div>
+
+<footer class="footer">&copy; 2026 Sri Seragam.</footer>
+
+<!-- OPSIONAL: skrip kecil agar kolom search langsung menyaring produk saat mengetik.
+     Tanpa ini, website tetap jalan penuh dengan HTML & CSS saja. Hapus blok ini bila tidak mau. -->
+<script>
+  const cari = document.querySelector('.search input');
+  cari.addEventListener('input', () => {
+    const kata = cari.value.toLowerCase();
+    document.querySelectorAll('.card').forEach(card => {
+      card.hidden = !card.textContent.toLowerCase().includes(kata);
+    });
+  });
+</script>
+
+</body>
+</html>
